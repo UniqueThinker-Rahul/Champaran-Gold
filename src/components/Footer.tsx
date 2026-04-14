@@ -50,7 +50,7 @@ export default function Footer() {
             {/* FSSAI TRUST BADGE */}
             <div className="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-xl w-fit">
               <img 
-                src="src\Source\Fssai.png" 
+                src="/Source/Fssai.png" 
                 alt="FSSAI" 
                 className="h-10 md:h-12 object-contain" 
               />
