@@ -10,8 +10,10 @@ export default function Home() {
       {/* 1. Hero Section */}
       <section className="relative min-h-screen flex items-center pt-24 md:pt-20 overflow-hidden bg-brand-beige">
         {/* Decorative Floating Spices - INCREASED SIZE & ALWAYS VISIBLE */}
-        <img src="/Source/cardmom.png" alt="" className="absolute top-[5%] md:top-[15%] left-[-10%] md:left-[2%] w-32 md:w-48 lg:w-64 h-32 md:h-48 lg:h-64 object-contain opacity-100 rotate-[15deg] pointer-events-none drop-shadow-md z-0" />
-        <img src="/Source/clove.png" alt="" className="absolute bottom-[5%] md:bottom-[15%] right-[-5%] md:right-[35%] w-24 md:w-32 lg:w-48 h-24 md:h-32 lg:h-48 object-contain opacity-100 -rotate-[30deg] pointer-events-none drop-shadow-sm z-0" />
+        <img src="/Source/cardmom.png" alt="" className="absolute top-[0%] md:top-[5%] left-[-10%] md:left-[2%] w-32 md:w-48 lg:w-64 h-32 md:h-48 lg:h-64 object-contain opacity-100 rotate-[15deg] pointer-events-none drop-shadow-md z-0" />
+        
+        {/* CLOVE IMAGE - SHIFTED TO THE LEFT */}
+        <img src="/Source/clove.png" alt="" className="absolute bottom-[5%] md:bottom-[15%] right-[5%] md:right-[45%] w-24 md:w-32 lg:w-48 h-24 md:h-32 lg:h-48 object-contain opacity-100 -rotate-[30deg] pointer-events-none drop-shadow-sm z-0" />
 
         <div className="absolute inset-0 z-0 pointer-events-none">
           <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-brand-red/5 rounded-full blur-3xl" />
@@ -82,7 +84,7 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-white relative">
         {/* Decorative Floating Spices */}
         <img src="/Source/Cumin.png" alt="" className="absolute top-0 md:top-10 right-[-10%] md:right-[5%] w-32 md:w-48 lg:w-64 h-32 md:h-48 lg:h-64 object-contain opacity-100 rotate-[45deg] pointer-events-none drop-shadow-sm z-0" />
-        <img src="/Source/DriedGinger.png" alt="" className="absolute bottom-[-5%] left-[-15%] md:left-[2%] w-40 md:w-56 lg:w-72 h-40 md:h-56 lg:h-72 object-contain opacity-100 -rotate-[15deg] pointer-events-none drop-shadow-md z-0" />
+        <img src="/Source/DriedGinger.png" alt="" className="absolute bottom-[-15%] left-[-15%] md:left-[2%] w-40 md:w-56 lg:w-72 h-40 md:h-56 lg:h-72 object-contain opacity-100 -rotate-[15deg] pointer-events-none drop-shadow-md z-0" />
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16 bg-white/60 md:bg-transparent p-4 rounded-xl backdrop-blur-sm md:backdrop-blur-none">
