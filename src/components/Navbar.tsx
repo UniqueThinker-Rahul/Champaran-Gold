@@ -37,7 +37,7 @@ export default function Navbar() {
         {/* LOGO SECTION */}
         <Link to="/" className="flex items-center gap-3 group">
           <img 
-            src="src\Source\Logo.png" 
+            src="/Source/Logo.png" 
             alt="Champaran Gold Logo" 
             className="h-14 md:h-20 w-auto object-contain transition-transform group-hover:scale-105"
           />
@@ -80,7 +80,7 @@ export default function Navbar() {
               {/* Mobile Menu Header with Logo */}
               <div className="p-6 border-b border-brand-brown/5 bg-white flex items-center mt-6 shadow-sm">
                 <img 
-                  src="src\Source\Logo.png" 
+                  src="/Source/Logo.png" 
                   alt="Champaran Gold" 
                   className="h-12 w-auto object-contain"
                 />
