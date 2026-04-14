@@ -10,8 +10,8 @@ export default function Home() {
       {/* 1. Hero Section */}
       <section className="relative min-h-screen flex items-center pt-24 md:pt-20 overflow-hidden bg-brand-beige">
         {/* Decorative Floating Spices - INCREASED SIZE & ALWAYS VISIBLE */}
-        <img src="src/Source/cardmom.png" alt="" className="absolute top-[5%] md:top-[15%] left-[-10%] md:left-[2%] w-32 md:w-48 lg:w-64 h-32 md:h-48 lg:h-64 object-contain opacity-100 rotate-[15deg] pointer-events-none drop-shadow-md z-0" />
-        <img src="src/Source/clove.png" alt="" className="absolute bottom-[5%] md:bottom-[15%] right-[-5%] md:right-[35%] w-24 md:w-32 lg:w-48 h-24 md:h-32 lg:h-48 object-contain opacity-100 -rotate-[30deg] pointer-events-none drop-shadow-sm z-0" />
+        <img src="/Source/cardmom.png" alt="" className="absolute top-[5%] md:top-[15%] left-[-10%] md:left-[2%] w-32 md:w-48 lg:w-64 h-32 md:h-48 lg:h-64 object-contain opacity-100 rotate-[15deg] pointer-events-none drop-shadow-md z-0" />
+        <img src="/Source/clove.png" alt="" className="absolute bottom-[5%] md:bottom-[15%] right-[-5%] md:right-[35%] w-24 md:w-32 lg:w-48 h-24 md:h-32 lg:h-48 object-contain opacity-100 -rotate-[30deg] pointer-events-none drop-shadow-sm z-0" />
 
         <div className="absolute inset-0 z-0 pointer-events-none">
           <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-brand-red/5 rounded-full blur-3xl" />
