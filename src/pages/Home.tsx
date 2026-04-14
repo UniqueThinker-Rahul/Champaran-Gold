@@ -81,8 +81,8 @@ export default function Home() {
       {/* 2. Champaran Gold Offerings */}
       <section className="py-16 md:py-24 bg-white relative">
         {/* Decorative Floating Spices */}
-        <img src="src/Source/Cumin.png" alt="" className="absolute top-0 md:top-10 right-[-10%] md:right-[5%] w-32 md:w-48 lg:w-64 h-32 md:h-48 lg:h-64 object-contain opacity-100 rotate-[45deg] pointer-events-none drop-shadow-sm z-0" />
-        <img src="src/Source/DriedGinger.png" alt="" className="absolute bottom-[-5%] left-[-15%] md:left-[2%] w-40 md:w-56 lg:w-72 h-40 md:h-56 lg:h-72 object-contain opacity-100 -rotate-[15deg] pointer-events-none drop-shadow-md z-0" />
+        <img src="/Source/Cumin.png" alt="" className="absolute top-0 md:top-10 right-[-10%] md:right-[5%] w-32 md:w-48 lg:w-64 h-32 md:h-48 lg:h-64 object-contain opacity-100 rotate-[45deg] pointer-events-none drop-shadow-sm z-0" />
+        <img src="/Source/DriedGinger.png" alt="" className="absolute bottom-[-5%] left-[-15%] md:left-[2%] w-40 md:w-56 lg:w-72 h-40 md:h-56 lg:h-72 object-contain opacity-100 -rotate-[15deg] pointer-events-none drop-shadow-md z-0" />
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16 bg-white/60 md:bg-transparent p-4 rounded-xl backdrop-blur-sm md:backdrop-blur-none">
@@ -127,8 +127,8 @@ export default function Home() {
       {/* 3. Most Loved */}
       <section className="py-16 md:py-24 bg-brand-beige/50 border-y border-brand-brown/5 relative overflow-hidden">
         {/* Decorative Floating Spices */}
-        <img src="src/Source/chilli.png" alt="" className="absolute top-[10%] md:top-1/3 left-[-15%] md:left-[-2%] w-48 md:w-64 lg:w-[22rem] h-48 md:h-64 lg:h-[22rem] object-contain opacity-100 rotate-[120deg] pointer-events-none drop-shadow-md z-0" />
-        <img src="src/Source/musterd.png" alt="" className="absolute bottom-5 right-[-10%] md:right-[2%] w-32 md:w-48 lg:w-56 h-32 md:h-48 lg:h-56 object-contain opacity-100 rotate-[45deg] pointer-events-none drop-shadow-sm z-0" />
+        <img src="/Source/chilli.png" alt="" className="absolute top-[10%] md:top-1/3 left-[-15%] md:left-[-2%] w-48 md:w-64 lg:w-[22rem] h-48 md:h-64 lg:h-[22rem] object-contain opacity-100 rotate-[120deg] pointer-events-none drop-shadow-md z-0" />
+        <img src="/Source/musterd.png" alt="" className="absolute bottom-5 right-[-10%] md:right-[2%] w-32 md:w-48 lg:w-56 h-32 md:h-48 lg:h-56 object-contain opacity-100 rotate-[45deg] pointer-events-none drop-shadow-sm z-0" />
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
@@ -170,7 +170,7 @@ export default function Home() {
       {/* 4. Why Choose Us Section */}
       <section className="py-16 md:py-24 bg-white relative overflow-hidden">
         {/* Decorative Floating Spices */}
-        <img src="src/Source/Garlic.png" alt="" className="absolute top-10 left-[-10%] md:left-[5%] w-32 md:w-48 lg:w-64 h-32 md:h-48 lg:h-64 object-contain opacity-100 -rotate-[45deg] pointer-events-none drop-shadow-sm z-0" />
+        <img src="/Source/Garlic.png" alt="" className="absolute top-10 left-[-10%] md:left-[5%] w-32 md:w-48 lg:w-64 h-32 md:h-48 lg:h-64 object-contain opacity-100 -rotate-[45deg] pointer-events-none drop-shadow-sm z-0" />
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16 bg-white/70 p-4 rounded-2xl backdrop-blur-sm md:backdrop-blur-none md:bg-transparent">
@@ -269,8 +269,8 @@ export default function Home() {
         <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-brand-brown/5 to-transparent z-0 pointer-events-none" />
 
         {/* Decorative Floating Spices Added Here */}
-        <img src="src/Source/Turrmic.png" alt="" className="absolute top-[5%] md:top-10 left-[-15%] md:left-[2%] w-36 md:w-56 lg:w-72 h-36 md:h-56 lg:h-72 object-contain opacity-100 -rotate-12 pointer-events-none drop-shadow-md z-0" />
-        <img src="src/Source/mint.png" alt="" className="absolute bottom-[5%] md:bottom-10 right-[-15%] md:right-[2%] w-40 md:w-56 lg:w-72 h-40 md:h-56 lg:h-72 object-contain opacity-100 rotate-45 pointer-events-none drop-shadow-sm z-0" />
+        <img src="/Source/Turrmic.png" alt="" className="absolute top-[5%] md:top-10 left-[-15%] md:left-[2%] w-36 md:w-56 lg:w-72 h-36 md:h-56 lg:h-72 object-contain opacity-100 -rotate-12 pointer-events-none drop-shadow-md z-0" />
+        <img src="/Source/mint.png" alt="" className="absolute bottom-[5%] md:bottom-10 right-[-15%] md:right-[2%] w-40 md:w-56 lg:w-72 h-40 md:h-56 lg:h-72 object-contain opacity-100 rotate-45 pointer-events-none drop-shadow-sm z-0" />
 
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
           <div className="bg-[#FAF9F6]/90 backdrop-blur-md border border-brand-red/10 rounded-[2rem] md:rounded-[3rem] p-8 md:p-20 shadow-xl max-w-5xl mx-auto relative overflow-hidden">
