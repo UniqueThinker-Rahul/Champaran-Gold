@@ -37,7 +37,7 @@ export default function Navbar() {
         {/* LOGO SECTION */}
         <Link to="/" className="flex items-center gap-3 group">
           <img 
-            src="/Source/Logo.png" 
+            src="\Source\Logo.png" 
             alt="Champaran Gold Logo" 
             className="h-14 md:h-20 w-auto object-contain transition-transform group-hover:scale-105"
           />
@@ -58,9 +58,11 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Button className="bg-brand-red hover:bg-brand-red/90 text-white rounded-full px-6 shadow-md hover:scale-105 transition-all">
-            Order Now
-          </Button>
+          <Link to="/faqs">
+            <Button className="bg-brand-red hover:bg-brand-red/90 text-white rounded-full px-6 shadow-md hover:scale-105 transition-all">
+              FAQs
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Nav */}
@@ -80,7 +82,7 @@ export default function Navbar() {
               {/* Mobile Menu Header with Logo */}
               <div className="p-6 border-b border-brand-brown/5 bg-white flex items-center mt-6 shadow-sm">
                 <img 
-                  src="/Source/Logo.png" 
+                  src="\Source\Logo.png" 
                   alt="Champaran Gold" 
                   className="h-12 w-auto object-contain"
                 />
@@ -111,9 +113,11 @@ export default function Navbar() {
 
               {/* Mobile Menu Footer pinned to bottom */}
               <div className="p-6 bg-white border-t border-brand-brown/5 mt-auto shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)]">
-                <Button className="w-full bg-brand-red hover:bg-brand-red/90 text-white rounded-full py-6 text-lg shadow-md font-bold transition-all hover:scale-105">
-                  Order Now
-                </Button>
+                <Link to="/faqs" onClick={() => setIsOpen(false)} className="w-full block">
+                  <Button className="w-full bg-brand-red hover:bg-brand-red/90 text-white rounded-full py-6 text-lg shadow-md font-bold transition-all hover:scale-105">
+                    FAQs
+                  </Button>
+                </Link>
                 <p className="text-center text-[10px] text-brand-brown/40 mt-4 uppercase tracking-[0.2em] font-bold">
                   Pure. Honest. Essentials.
                 </p>
