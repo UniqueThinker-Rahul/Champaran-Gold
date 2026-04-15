@@ -227,8 +227,19 @@ export default function Products() {
     : categories.filter(c => c.title === activeFilter);
 
   return (
-    <div className="pt-32 pb-24 bg-[#FAF9F6] min-h-screen">
-      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-32 pb-24 bg-[#FAF9F6] min-h-screen relative overflow-hidden">
+      
+      {/* 4 Corner Decorative Images - Visible Only on Desktop */}
+      <div className="absolute top-20 left-0 w-full h-[600px] pointer-events-none z-0 hidden lg:block">
+        <div className="max-w-[1440px] mx-auto h-full relative">
+          <img src="/Source/cardmom.png" alt="" className="absolute top-[5%] left-[5%] w-48 opacity-20 rotate-[15deg] mix-blend-multiply" />
+          <img src="/Source/Cumin.png" alt="" className="absolute top-[65%] left-[2%] w-64 opacity-15 -rotate-[10deg] mix-blend-multiply" />
+          <img src="/Source/clove.png" alt="" className="absolute top-[5%] right-[5%] w-32 opacity-20 -rotate-[30deg] mix-blend-multiply" />
+          <img src="/Source/DriedGinger.png" alt="" className="absolute top-[65%] right-[2%] w-48 opacity-20 rotate-[25deg] mix-blend-multiply" />
+        </div>
+      </div>
+
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.h1 
@@ -247,7 +258,7 @@ export default function Products() {
               onClick={() => setActiveFilter("All")}
               className="cursor-pointer group flex flex-col items-center text-center"
             >
-              <div className={`w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-full overflow-hidden border-[6px] ${activeFilter === "All" ? "border-brand-red/20 shadow-lg" : "border-white shadow-sm hover:border-brand-red/10 hover:shadow-md"} mb-4 transition-all duration-300 flex items-center justify-center bg-white`}>
+              <div className={`w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-full overflow-hidden border-[6px] ${activeFilter === "All" ? "border-brand-red/20 shadow-lg p-1" : "border-white shadow-sm hover:border-brand-red/10 hover:shadow-md p-0"} mb-4 transition-all duration-300 flex items-center justify-center bg-white`}>
                 <span className="text-2xl md:text-3xl font-serif text-brand-brown font-bold group-hover:scale-110 transition-transform">All</span>
               </div>
               <h3 className={`text-sm md:text-base lg:text-lg font-serif font-bold transition-colors ${activeFilter === "All" ? "text-brand-red" : "text-brand-brown group-hover:text-brand-red"}`}>All Products</h3>
@@ -297,7 +308,8 @@ export default function Products() {
                 </Badge>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+              {/* GRID CONTAINER: Changed to show exactly 2 columns on small screens */}
+              <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6 md:gap-8">
                 {category.products.map((product, prodIdx) => (
                   <motion.div
                     key={prodIdx}
@@ -307,15 +319,14 @@ export default function Products() {
                     transition={{ delay: (prodIdx % 10) * 0.1 }}
                     className="h-full"
                   >
-                    <Card className="rounded-[2rem] overflow-hidden border-none shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.15)] hover:-translate-y-2 transition-all duration-500 group bg-white flex flex-col h-full cursor-pointer relative">
+                    <Card className="rounded-[1rem] sm:rounded-[2rem] overflow-hidden border-none shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.15)] hover:-translate-y-1 sm:hover:-translate-y-2 transition-all duration-500 group bg-white flex flex-col h-full cursor-pointer relative">
                       
-                      <div className="absolute top-4 right-0 z-20 pointer-events-none overflow-hidden">
-                        <div className="bg-brand-gold text-brand-brown font-bold text-[10px] px-4 py-1.5 uppercase tracking-wider rounded-l-full shadow-md transform translate-x-2 group-hover:translate-x-0 transition-transform duration-300">
+                      <div className="absolute top-2 sm:top-4 right-0 z-20 pointer-events-none overflow-hidden">
+                        <div className="bg-brand-gold text-brand-brown font-bold text-[8px] sm:text-[10px] px-2 sm:px-4 py-1 sm:py-1.5 uppercase tracking-wider rounded-l-full shadow-md transform translate-x-2 group-hover:translate-x-0 transition-transform duration-300">
                           Available Soon
                         </div>
                       </div>
 
-                      {/* Fixed edge-to-edge image container */}
                       <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#FAF9F6]">
                         <ImageWithSkeleton
                           src={product.image}
@@ -325,20 +336,21 @@ export default function Products() {
                         />
                       </div>
 
-                      <CardContent className="p-6 md:p-8 flex flex-col flex-grow text-center items-center">
-                        <h3 className="text-xl font-serif font-bold text-brand-brown mb-3 group-hover:text-brand-red transition-colors duration-300 line-clamp-1">
+                      {/* Scaled padding for mobile view to prevent cramming */}
+                      <CardContent className="p-3 sm:p-6 md:p-8 flex flex-col flex-grow text-center items-center">
+                        <h3 className="text-sm sm:text-lg md:text-xl font-serif font-bold text-brand-brown mb-1 sm:mb-3 group-hover:text-brand-red transition-colors duration-300 line-clamp-1">
                           {product.name}
                         </h3>
-                        <p className="text-brand-brown/50 text-sm leading-relaxed mb-6 flex-grow line-clamp-2">
+                        <p className="text-brand-brown/50 text-[10px] sm:text-xs md:text-sm leading-snug sm:leading-relaxed mb-3 sm:mb-6 flex-grow line-clamp-2">
                           {product.desc}
                         </p>
                         
                         <Dialog>
-                          <DialogTrigger className="flex items-center justify-center w-full rounded-full bg-brand-beige hover:bg-brand-red text-brand-brown hover:text-white transition-all duration-300 font-bold py-3.5 text-sm shadow-sm group-hover:shadow-md">
-                            View Details <ArrowRight className="ml-2 h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                          <DialogTrigger className="flex items-center justify-center w-full rounded-full bg-brand-beige hover:bg-brand-red text-brand-brown hover:text-white transition-all duration-300 font-bold py-2 sm:py-3.5 text-[10px] sm:text-sm shadow-sm group-hover:shadow-md">
+                            View Details <ArrowRight className="ml-1 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4 opacity-0 -translate-x-1 sm:-translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                           </DialogTrigger>
                           
-                          <DialogContent className="sm:max-w-[900px] w-[95vw] bg-white border-none rounded-[2.5rem] p-0 overflow-hidden max-h-[90vh] flex flex-col md:flex-row shadow-2xl">
+                          <DialogContent className="sm:max-w-[900px] w-[95vw] bg-white border-none rounded-[1.5rem] sm:rounded-[2.5rem] p-0 overflow-hidden max-h-[90vh] flex flex-col md:flex-row shadow-2xl">
                             
                             <div className="h-64 md:h-auto md:w-1/2 relative flex-shrink-0 bg-[#FAF9F6]">
                               <InteractiveImageSlider 
@@ -349,55 +361,55 @@ export default function Products() {
                               <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent z-20 pointer-events-none md:hidden" />
                             </div>
 
-                            <div className="p-8 md:p-12 relative z-10 flex flex-col md:w-1/2 overflow-y-auto bg-white">
-                              <DialogHeader className="mb-8 md:mb-10 text-left border-b border-brand-brown/5 pb-6">
-                                <DialogTitle className="text-3xl md:text-4xl font-serif font-bold text-brand-brown leading-tight mb-3">
+                            <div className="p-6 sm:p-8 md:p-12 relative z-10 flex flex-col md:w-1/2 overflow-y-auto bg-white">
+                              <DialogHeader className="mb-6 sm:mb-8 md:mb-10 text-left border-b border-brand-brown/5 pb-4 sm:pb-6">
+                                <DialogTitle className="text-xl sm:text-3xl md:text-4xl font-serif font-bold text-brand-brown leading-tight mb-2 sm:mb-3">
                                   {product.name}
                                 </DialogTitle>
-                                <DialogDescription className="text-brand-red font-medium italic text-lg">
+                                <DialogDescription className="text-brand-red font-medium italic text-xs sm:text-lg">
                                   Pure. Honest. Everyday Essentials.
                                 </DialogDescription>
                               </DialogHeader>
                               
-                              <div className="space-y-8 flex-grow">
+                              <div className="space-y-6 sm:space-y-8 flex-grow">
                                 <div>
-                                  <h4 className="text-xs font-bold uppercase tracking-[0.25em] text-brand-brown/40 mb-4 flex items-center gap-4">
-                                    <span className="w-8 h-px bg-brand-brown/20 inline-block"></span>
+                                  <h4 className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-brand-brown/40 mb-3 sm:mb-4 flex items-center gap-2 sm:gap-4">
+                                    <span className="w-6 sm:w-8 h-px bg-brand-brown/20 inline-block"></span>
                                     Origin Story
                                   </h4>
-                                  <p className="text-brand-brown/80 leading-relaxed text-base font-light pl-6 border-l-2 border-brand-gold/30">
+                                  <p className="text-brand-brown/80 leading-relaxed text-sm sm:text-base font-light pl-4 sm:pl-6 border-l-2 border-brand-gold/30">
                                     {product.originStory}
                                   </p>
                                 </div>
                                 
-                                <div className="p-6 rounded-[1.5rem] bg-[#FAF9F6] border border-brand-brown/5">
-                                  <h4 className="text-xs font-bold uppercase tracking-[0.25em] text-brand-brown/40 mb-3 flex items-center gap-4">
-                                    <span className="w-8 h-px bg-brand-brown/20 inline-block"></span>
+                                <div className="p-4 sm:p-6 rounded-[1.5rem] bg-[#FAF9F6] border border-brand-brown/5">
+                                  <h4 className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-brand-brown/40 mb-2 sm:mb-3 flex items-center gap-2 sm:gap-4">
+                                    <span className="w-6 sm:w-8 h-px bg-brand-brown/20 inline-block"></span>
                                     Nutrition & Purity
                                   </h4>
-                                  <p className="text-brand-brown font-medium text-base">
+                                  <p className="text-brand-brown font-medium text-sm sm:text-base">
                                     {product.nutritionalFacts}
                                   </p>
                                 </div>
 
-                                <div className="grid grid-cols-3 gap-3 pt-4 mt-auto">
-                                  <div className="flex flex-col items-center justify-center p-4 rounded-2xl bg-[#FAF9F6] border border-transparent transition-all">
-                                    <div className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center mb-3 text-brand-red">
-                                      <Leaf className="h-5 w-5" strokeWidth={1.5} />
+                                <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-2 sm:pt-4 mt-auto">
+                                  <div className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-[#FAF9F6] border border-transparent transition-all">
+                                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white shadow-sm flex items-center justify-center mb-2 sm:mb-3 text-brand-red">
+                                      <Leaf className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.5} />
                                     </div>
-                                    <span className="text-[10px] uppercase tracking-wider font-bold text-brand-brown/60 text-center">100% Natural</span>
+                                    <span className="text-[8px] sm:text-[10px] uppercase tracking-wider font-bold text-brand-brown/60 text-center">100% Natural</span>
                                   </div>
-                                  <div className="flex flex-col items-center justify-center p-4 rounded-2xl bg-[#FAF9F6] border border-transparent transition-all">
-                                    <div className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center mb-3 text-brand-red">
-                                      <ShieldCheck className="h-5 w-5" strokeWidth={1.5} />
+                                  <div className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-[#FAF9F6] border border-transparent transition-all">
+                                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white shadow-sm flex items-center justify-center mb-2 sm:mb-3 text-brand-red">
+                                      <ShieldCheck className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.5} />
                                     </div>
-                                    <span className="text-[10px] uppercase tracking-wider font-bold text-brand-brown/60 text-center">Hygienic</span>
+                                    <span className="text-[8px] sm:text-[10px] uppercase tracking-wider font-bold text-brand-brown/60 text-center">Hygienic</span>
                                   </div>
-                                  <div className="flex flex-col items-center justify-center p-4 rounded-2xl bg-[#FAF9F6] border border-transparent transition-all">
-                                    <div className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center mb-3 text-brand-red">
-                                      <IndianRupee className="h-5 w-5" strokeWidth={1.5} />
+                                  <div className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-[#FAF9F6] border border-transparent transition-all">
+                                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white shadow-sm flex items-center justify-center mb-2 sm:mb-3 text-brand-red">
+                                      <IndianRupee className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.5} />
                                     </div>
-                                    <span className="text-[10px] uppercase tracking-wider font-bold text-brand-brown/60 text-center">Best Value</span>
+                                    <span className="text-[8px] sm:text-[10px] uppercase tracking-wider font-bold text-brand-brown/60 text-center">Best Value</span>
                                   </div>
                                 </div>
                               </div>
