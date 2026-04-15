@@ -11,7 +11,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Info, Leaf, ShieldCheck, IndianRupee, ChevronLeft, ChevronRight } from "lucide-react";
+import { Info, Leaf, ShieldCheck, IndianRupee, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 function ImageWithSkeleton({ src, alt, className, imageClassName }: { src: string; alt: string; className?: string; imageClassName?: string }) {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -31,7 +31,7 @@ function ImageWithSkeleton({ src, alt, className, imageClassName }: { src: strin
         src={src}
         alt={alt}
         onLoad={() => setIsLoaded(true)}
-        className={`w-full h-full object-cover transition-opacity duration-500 ${imageClassName} ${isLoaded ? "opacity-100" : "opacity-0"}`}
+        className={`w-full h-full object-cover transition-opacity duration-700 ${imageClassName} ${isLoaded ? "opacity-100" : "opacity-0"}`}
         referrerPolicy="no-referrer"
       />
     </div>
@@ -53,12 +53,11 @@ function InteractiveImageSlider({ images, alt, className }: { images: string[]; 
   };
 
   useEffect(() => {
-    // FASTER REFRESH SPEED: Changed from 5000ms to 2500ms (2.5 seconds)
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 2500);
 
-    return () => clearInterval(timer); // Cleanup on unmount
+    return () => clearInterval(timer);
   }, [images.length]);
 
   return (
@@ -203,7 +202,6 @@ const categories = [
   }
 ];
 
-// HELPER FUNCTION: GENERATES AN ARRAY OF IMAGES FOR THE SLIDER
 const getSlideImages = (baseImage: string, idx: number) => {
   const extraImages = [
     "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=400",
@@ -229,7 +227,7 @@ export default function Products() {
     : categories.filter(c => c.title === activeFilter);
 
   return (
-    <div className="pt-32 pb-24 bg-brand-beige min-h-screen">
+    <div className="pt-32 pb-24 bg-[#FAF9F6] min-h-screen">
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -238,7 +236,7 @@ export default function Products() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl font-serif font-bold text-brand-brown mb-6"
           >
-            Our <span className="text-brand-red">Products</span>
+            Our <span className="text-brand-red italic">Products</span>
           </motion.h1>
           <p className="text-brand-brown/60 text-lg mb-12">
             Explore our carefully curated range of kitchen essentials. We bring you the finest quality products processed with care and tradition.
@@ -249,8 +247,8 @@ export default function Products() {
               onClick={() => setActiveFilter("All")}
               className="cursor-pointer group flex flex-col items-center text-center"
             >
-              <div className={`w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-full overflow-hidden border-4 ${activeFilter === "All" ? "border-brand-red" : "border-transparent hover:border-brand-red/30"} mb-4 shadow-sm group-hover:shadow-lg transition-all duration-300 flex items-center justify-center bg-white`}>
-                <span className="text-2xl md:text-3xl font-serif text-brand-brown group-hover:scale-110 transition-transform">All</span>
+              <div className={`w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-full overflow-hidden border-[6px] ${activeFilter === "All" ? "border-brand-red/20 shadow-lg" : "border-white shadow-sm hover:border-brand-red/10 hover:shadow-md"} mb-4 transition-all duration-300 flex items-center justify-center bg-white`}>
+                <span className="text-2xl md:text-3xl font-serif text-brand-brown font-bold group-hover:scale-110 transition-transform">All</span>
               </div>
               <h3 className={`text-sm md:text-base lg:text-lg font-serif font-bold transition-colors ${activeFilter === "All" ? "text-brand-red" : "text-brand-brown group-hover:text-brand-red"}`}>All Products</h3>
             </div>
@@ -277,8 +275,8 @@ export default function Products() {
                 onClick={() => setActiveFilter(item.target)}
                 className="cursor-pointer group flex flex-col items-center text-center"
               >
-                <div className={`w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-full overflow-hidden border-4 ${activeFilter === item.target ? "border-brand-red" : "border-transparent hover:border-brand-red/30"} mb-4 shadow-sm group-hover:shadow-lg transition-all duration-300`}>
-                  <img src={item.img} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <div className={`w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 rounded-full overflow-hidden border-[6px] ${activeFilter === item.target ? "border-brand-red/20 shadow-lg p-1" : "border-white shadow-sm hover:border-brand-red/10 hover:shadow-md p-0"} mb-4 transition-all duration-300 bg-white`}>
+                  <img src={item.img} alt={item.name} className="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500" />
                 </div>
                 <h3 className={`text-sm md:text-base lg:text-lg font-serif font-bold transition-colors ${activeFilter === item.target ? "text-brand-red" : "text-brand-brown group-hover:text-brand-red"}`}>{item.name}</h3>
               </div>
@@ -289,13 +287,13 @@ export default function Products() {
         <div className="space-y-24">
           {filteredCategories.map((category, catIdx) => (
             <div key={catIdx}>
-              <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 border-b border-brand-red/10 pb-6">
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 border-b border-brand-brown/5 pb-6">
                 <div>
-                  <h2 className="text-3xl font-serif font-bold text-brand-brown mb-2">{category.title}</h2>
-                  <p className="text-brand-brown/60 max-w-md">{category.description}</p>
+                  <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-brown mb-3">{category.title}</h2>
+                  <p className="text-brand-brown/60 max-w-xl text-lg">{category.description}</p>
                 </div>
-                <Badge variant="outline" className="w-fit border-brand-red text-brand-red font-bold">
-                  {category.products.length} Items
+                <Badge className="w-fit bg-brand-red/10 hover:bg-brand-red/20 text-brand-red font-bold text-sm px-4 py-1.5 rounded-full border-none shadow-none">
+                  {category.products.length} Products
                 </Badge>
               </div>
 
@@ -307,97 +305,97 @@ export default function Products() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: (prodIdx % 10) * 0.1 }}
+                    className="h-full"
                   >
-                    <Card className="rounded-[16px] overflow-hidden border border-brand-brown/10 shadow-sm hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] hover:-translate-y-1.5 transition-all duration-300 group bg-white flex flex-col h-full cursor-pointer">
+                    <Card className="rounded-[2rem] overflow-hidden border-none shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.15)] hover:-translate-y-2 transition-all duration-500 group bg-white flex flex-col h-full cursor-pointer relative">
                       
-                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-brand-beige/20">
+                      <div className="absolute top-4 right-0 z-20 pointer-events-none overflow-hidden">
+                        <div className="bg-brand-gold text-brand-brown font-bold text-[10px] px-4 py-1.5 uppercase tracking-wider rounded-l-full shadow-md transform translate-x-2 group-hover:translate-x-0 transition-transform duration-300">
+                          Available Soon
+                        </div>
+                      </div>
+
+                      {/* Fixed edge-to-edge image container */}
+                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#FAF9F6]">
                         <ImageWithSkeleton
                           src={product.image}
                           alt={product.name}
                           className="w-full h-full"
-                          imageClassName="group-hover:scale-105 transition-transform duration-[3000ms] ease-out"
+                          imageClassName="group-hover:scale-105 transition-transform duration-[2000ms] ease-out object-cover mix-blend-multiply"
                         />
-                        <div className="absolute inset-0 bg-brand-brown/0 group-hover:bg-brand-brown/5 transition-colors duration-500 z-10 pointer-events-none" />
-                        
-                        <div className="absolute top-3 right-3 z-20 pointer-events-none">
-                          <Badge className="bg-[#CFAF5B] text-brand-brown font-bold text-[10px] px-3 py-1 uppercase tracking-wider rounded-full border-none shadow-sm">
-                            Available Soon
-                          </Badge>
-                        </div>
                       </div>
 
-                      <CardContent className="p-6 flex flex-col flex-grow items-center text-center">
-                        <h3 className="text-xl font-serif font-bold text-brand-brown mb-2">
+                      <CardContent className="p-6 md:p-8 flex flex-col flex-grow text-center items-center">
+                        <h3 className="text-xl font-serif font-bold text-brand-brown mb-3 group-hover:text-brand-red transition-colors duration-300 line-clamp-1">
                           {product.name}
                         </h3>
-                        <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-grow line-clamp-2">
+                        <p className="text-brand-brown/50 text-sm leading-relaxed mb-6 flex-grow line-clamp-2">
                           {product.desc}
                         </p>
                         
                         <Dialog>
-                          {/* FIXED: Removed asChild and inner <Button> to fix invalid nesting errors */}
-                          <DialogTrigger className="flex items-center justify-center w-full rounded-full border border-brand-brown text-brand-brown hover:bg-brand-brown hover:text-white transition-colors duration-300 font-medium py-3 text-base shadow-none">
-                            <Info className="mr-2 h-4 w-4" /> View Details
+                          <DialogTrigger className="flex items-center justify-center w-full rounded-full bg-brand-beige hover:bg-brand-red text-brand-brown hover:text-white transition-all duration-300 font-bold py-3.5 text-sm shadow-sm group-hover:shadow-md">
+                            View Details <ArrowRight className="ml-2 h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                           </DialogTrigger>
                           
                           <DialogContent className="sm:max-w-[900px] w-[95vw] bg-white border-none rounded-[2.5rem] p-0 overflow-hidden max-h-[90vh] flex flex-col md:flex-row shadow-2xl">
                             
-                            <div className="h-64 md:h-auto md:w-1/2 relative flex-shrink-0 bg-brand-beige/30">
+                            <div className="h-64 md:h-auto md:w-1/2 relative flex-shrink-0 bg-[#FAF9F6]">
                               <InteractiveImageSlider 
                                 images={getSlideImages(product.image, prodIdx)} 
                                 alt={product.name} 
-                                className="w-full h-full"
+                                className="w-full h-full mix-blend-multiply"
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent z-20 pointer-events-none md:hidden" />
                             </div>
 
                             <div className="p-8 md:p-12 relative z-10 flex flex-col md:w-1/2 overflow-y-auto bg-white">
                               <DialogHeader className="mb-8 md:mb-10 text-left border-b border-brand-brown/5 pb-6">
-                                <DialogTitle className="text-3xl md:text-5xl font-serif font-bold text-brand-brown leading-tight mb-3">
+                                <DialogTitle className="text-3xl md:text-4xl font-serif font-bold text-brand-brown leading-tight mb-3">
                                   {product.name}
                                 </DialogTitle>
-                                <DialogDescription className="text-brand-red font-medium italic text-lg md:text-xl">
+                                <DialogDescription className="text-brand-red font-medium italic text-lg">
                                   Pure. Honest. Everyday Essentials.
                                 </DialogDescription>
                               </DialogHeader>
                               
-                              <div className="space-y-10 flex-grow">
+                              <div className="space-y-8 flex-grow">
                                 <div>
                                   <h4 className="text-xs font-bold uppercase tracking-[0.25em] text-brand-brown/40 mb-4 flex items-center gap-4">
                                     <span className="w-8 h-px bg-brand-brown/20 inline-block"></span>
                                     Origin Story
                                   </h4>
-                                  <p className="text-brand-brown/80 leading-relaxed text-base md:text-lg font-light pl-12 border-l-2 border-brand-gold/30">
+                                  <p className="text-brand-brown/80 leading-relaxed text-base font-light pl-6 border-l-2 border-brand-gold/30">
                                     {product.originStory}
                                   </p>
                                 </div>
                                 
-                                <div className="p-6 md:p-8 rounded-[1.5rem] bg-brand-beige/40 border border-brand-brown/5">
-                                  <h4 className="text-xs font-bold uppercase tracking-[0.25em] text-brand-brown/40 mb-4 flex items-center gap-4">
+                                <div className="p-6 rounded-[1.5rem] bg-[#FAF9F6] border border-brand-brown/5">
+                                  <h4 className="text-xs font-bold uppercase tracking-[0.25em] text-brand-brown/40 mb-3 flex items-center gap-4">
                                     <span className="w-8 h-px bg-brand-brown/20 inline-block"></span>
-                                    Nutrition
+                                    Nutrition & Purity
                                   </h4>
-                                  <p className="text-brand-brown text-base md:text-lg font-medium pl-12">
+                                  <p className="text-brand-brown font-medium text-base">
                                     {product.nutritionalFacts}
                                   </p>
                                 </div>
 
-                                <div className="grid grid-cols-3 gap-2 pt-6 mt-auto">
-                                  <div className="flex flex-col items-center justify-center p-3 rounded-2xl bg-white hover:bg-brand-beige/50 border border-transparent hover:border-brand-brown/5 transition-all">
-                                    <div className="w-12 h-12 rounded-full bg-brand-red/5 flex items-center justify-center mb-3">
-                                      <Leaf className="h-5 w-5 text-brand-red" strokeWidth={1.5} />
+                                <div className="grid grid-cols-3 gap-3 pt-4 mt-auto">
+                                  <div className="flex flex-col items-center justify-center p-4 rounded-2xl bg-[#FAF9F6] border border-transparent transition-all">
+                                    <div className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center mb-3 text-brand-red">
+                                      <Leaf className="h-5 w-5" strokeWidth={1.5} />
                                     </div>
                                     <span className="text-[10px] uppercase tracking-wider font-bold text-brand-brown/60 text-center">100% Natural</span>
                                   </div>
-                                  <div className="flex flex-col items-center justify-center p-3 rounded-2xl bg-white hover:bg-brand-beige/50 border border-transparent hover:border-brand-brown/5 transition-all">
-                                    <div className="w-12 h-12 rounded-full bg-brand-red/5 flex items-center justify-center mb-3">
-                                      <ShieldCheck className="h-5 w-5 text-brand-red" strokeWidth={1.5} />
+                                  <div className="flex flex-col items-center justify-center p-4 rounded-2xl bg-[#FAF9F6] border border-transparent transition-all">
+                                    <div className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center mb-3 text-brand-red">
+                                      <ShieldCheck className="h-5 w-5" strokeWidth={1.5} />
                                     </div>
                                     <span className="text-[10px] uppercase tracking-wider font-bold text-brand-brown/60 text-center">Hygienic</span>
                                   </div>
-                                  <div className="flex flex-col items-center justify-center p-3 rounded-2xl bg-white hover:bg-brand-beige/50 border border-transparent hover:border-brand-brown/5 transition-all">
-                                    <div className="w-12 h-12 rounded-full bg-brand-red/5 flex items-center justify-center mb-3">
-                                      <IndianRupee className="h-5 w-5 text-brand-red" strokeWidth={1.5} />
+                                  <div className="flex flex-col items-center justify-center p-4 rounded-2xl bg-[#FAF9F6] border border-transparent transition-all">
+                                    <div className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center mb-3 text-brand-red">
+                                      <IndianRupee className="h-5 w-5" strokeWidth={1.5} />
                                     </div>
                                     <span className="text-[10px] uppercase tracking-wider font-bold text-brand-brown/60 text-center">Best Value</span>
                                   </div>
