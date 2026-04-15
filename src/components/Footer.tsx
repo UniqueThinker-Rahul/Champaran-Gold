@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Instagram, Facebook, Twitter, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button"; // <--- THIS WAS THE MISSING LINE!
+import { Button } from "@/components/ui/button"; 
 
 export default function Footer() {
   return (
@@ -11,23 +11,25 @@ export default function Footer() {
       
       <div className="container mx-auto px-4 md:px-6 pt-16 pb-8 relative z-10">
         
-        {/* PREMIUM NEWSLETTER SECTION */}
-        <div className="flex flex-col lg:flex-row justify-between items-center bg-white/5 border border-white/10 rounded-[2rem] p-8 md:p-10 mb-16 shadow-lg backdrop-blur-sm">
+        {/* PREMIUM NEWSLETTER SECTION - FIXED FOR MOBILE */}
+        <div className="flex flex-col lg:flex-row justify-between items-center bg-white/5 border border-white/10 rounded-[2rem] p-6 sm:p-8 md:p-10 mb-16 shadow-lg backdrop-blur-sm">
           <div className="mb-6 lg:mb-0 text-center lg:text-left">
-            <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-2 flex items-center justify-center lg:justify-start gap-2">
-              <span className="text-brand-gold">Champaran Gold</span> in Your Inbox
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-white mb-2 flex flex-wrap items-center justify-center lg:justify-start gap-x-2">
+              <span className="text-brand-gold">Champaran Gold</span> 
+              <span>in Your Inbox</span>
             </h3>
-            <p className="text-brand-beige/70 text-sm md:text-base">
+            <p className="text-brand-beige/70 text-sm md:text-base mt-2">
               Subscribe to get exclusive offers, recipes, and updates from our community.
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row w-full lg:w-auto gap-3 max-w-lg">
+          
+          <div className="flex flex-col sm:flex-row w-full lg:w-auto gap-4 max-w-lg mt-4 sm:mt-0">
             <input 
               type="email" 
               placeholder="Enter your Email ID" 
-              className="bg-white/10 border border-white/20 rounded-full px-6 py-4 w-full text-white placeholder:text-white/50 focus:outline-none focus:border-brand-gold transition-colors" 
+              className="bg-white/10 border border-white/20 rounded-[1.5rem] sm:rounded-full px-6 py-4 w-full text-white placeholder:text-white/50 focus:outline-none focus:border-brand-gold transition-colors" 
             />
-            <Button className="bg-brand-red hover:bg-brand-red/90 text-white rounded-full px-8 py-6 text-base font-bold shadow-md transition-all hover:scale-105 shrink-0">
+            <Button className="bg-brand-red hover:bg-brand-red/90 text-white rounded-[1.5rem] sm:rounded-full px-8 py-6 text-base font-bold shadow-md transition-all hover:scale-105 shrink-0 w-full sm:w-auto mt-2 sm:mt-0">
               Subscribe Now
             </Button>
           </div>
@@ -50,7 +52,7 @@ export default function Footer() {
             {/* FSSAI TRUST BADGE */}
             <div className="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-xl w-fit">
               <img 
-                src="/Source/Fssai.png" 
+                src="\Source\Fssai.png" 
                 alt="FSSAI" 
                 className="h-10 md:h-12 object-contain" 
               />
